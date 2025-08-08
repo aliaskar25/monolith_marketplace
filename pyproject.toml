@@ -1,0 +1,18 @@
+[tool.black]
+line-length = 100
+target-version = ["py311"]
+
+[tool.ruff]
+line-length = 100
+target-version = "py311"
+# E,F — базовые ошибки/ворнинги Flake8; I — сортировка импортов; B — bugbear
+select = ["E", "F", "I", "B"]
+ignore = ["E203", "E501"]  # совместимость с Black
+
+[tool.ruff.lint.isort]
+known-first-party = ["marketplace"]
+
+[tool.pytest.ini_options]
+addopts = "-q -ra"
+testpaths = ["tests"]
+asyncio_mode = "auto"
