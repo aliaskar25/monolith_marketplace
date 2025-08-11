@@ -12,3 +12,8 @@ class UserRole(Enum):
     admin = "admin"
     user = "user"
     moderator = "moderator"
+
+
+class UserPlatformRole(Enum):
+    buyer = "buyer"
+    seller = "seller"

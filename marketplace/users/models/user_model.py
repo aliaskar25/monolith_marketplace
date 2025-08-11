@@ -19,7 +19,11 @@ from argon2 import PasswordHasher
 from argon2.exceptions import VerifyMismatchError
 
 from marketplace.infrastructure.db_base import Base
-from marketplace.users.enums.user_enums import UserStatus, UserRole
+from marketplace.users.enums.user_enums import (
+    UserStatus,
+    UserRole,
+    UserPlatformRole,
+)
 
 
 _password_hasher = PasswordHasher()
@@ -64,6 +68,12 @@ class UserModel(Base, TimestampMixin):
     role: Mapped[UserRole] = mapped_column(
         SQLAlchemyEnum(UserRole, name="user_role"),
         server_default=UserRole.user.value,
+        nullable=False,
+    )
+
+    platform_role: Mapped[UserPlatformRole] = mapped_column(
+        SQLAlchemyEnum(UserPlatformRole, name="user_platform_role"),
+        server_default=UserPlatformRole.buyer.value,
         nullable=False,
     )
 
