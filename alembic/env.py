@@ -10,9 +10,10 @@ from sqlalchemy.ext.asyncio import AsyncEngine, create_async_engine
 from alembic import context
 from marketplace.infrastructure.db_base import Base
 from marketplace.products.models.product_model import ProductModel
+from marketplace.users.models.user_model import UserModel
 
 
-__all__ = ["Base", "ProductModel"]
+__all__ = ["Base", "ProductModel", "UserModel"]
 
 # this is the Alembic Config object, which provides
 # access to the values within the .ini file in use.
