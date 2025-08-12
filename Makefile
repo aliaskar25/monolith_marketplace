@@ -9,7 +9,7 @@ up:
 	COMPOSE_PROFILES=$(PROFILE) docker compose up --build -d
 
 down:
-	COMPOSE_PROFILES=$(PROFILE) docker compose down -v
+	COMPOSE_PROFILES=$(PROFILE) docker compose down
 
 logs:
 	COMPOSE_PROFILES=$(PROFILE) docker compose logs -f --tail=200 $(SERVICE)
