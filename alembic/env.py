@@ -11,9 +11,10 @@ from alembic import context
 from marketplace.infrastructure.db_base import Base
 from marketplace.products.models.product_model import ProductModel
 from marketplace.users.models.user_model import UserModel
+from marketplace.products.models.category_model import CategoryModel
 
 
-__all__ = ["Base", "ProductModel", "UserModel"]
+__all__ = ["Base", "ProductModel", "UserModel", "CategoryModel"]
 
 # this is the Alembic Config object, which provides
 # access to the values within the .ini file in use.

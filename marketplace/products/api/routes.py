@@ -11,7 +11,7 @@ from marketplace.products.schemas.product_dto import (
     ProductUpdateSchema,
 )
 from marketplace.products.container import ProductsContainer
-from marketplace.products.services.product_service import ProductService
+from marketplace.products.services.product.product_service import ProductService
 
 
 router = APIRouter(prefix="/products", tags=["products"])

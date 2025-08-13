@@ -2,8 +2,8 @@ from dependency_injector import containers, providers
 
 from sqlalchemy.ext.asyncio import AsyncSession, async_sessionmaker
 
-from marketplace.products.repositories.product_repository import ProductRepository
-from marketplace.products.services.product_service import ProductService
+from marketplace.products.repositories.product.product_repository import ProductRepository
+from marketplace.products.services.product.product_service import ProductService
 
 
 class ProductsContainer(containers.DeclarativeContainer):

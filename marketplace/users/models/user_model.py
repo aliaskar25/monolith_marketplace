@@ -11,7 +11,7 @@ from sqlalchemy import (
     func,
     text,
 )
-from sqlalchemy.orm import Mapped, mapped_column, validates, declarative_mixin
+from sqlalchemy.orm import Mapped, mapped_column, validates
 from sqlalchemy.dialects.postgresql import CITEXT
 from sqlalchemy.types import Enum as SQLAlchemyEnum
 
@@ -24,27 +24,10 @@ from marketplace.users.enums.user_enums import (
     UserRole,
     UserPlatformRole,
 )
+from marketplace.common.mixins.timestamp_mixin import TimestampMixin
 
 
 _password_hasher = PasswordHasher()
-
-
-
-# TODO: Move to separate file and use it in other models
-@declarative_mixin
-class TimestampMixin:
-    created_at: Mapped[datetime] = mapped_column(
-        DateTime(timezone=True),
-        server_default=func.now(),
-        nullable=False,
-    )
-    updated_at: Mapped[datetime] = mapped_column(
-        DateTime(timezone=True),
-        server_default=func.now(),
-        onupdate=func.now(),
-        nullable=False,
-    )
-
 
 
 class UserModel(Base, TimestampMixin):

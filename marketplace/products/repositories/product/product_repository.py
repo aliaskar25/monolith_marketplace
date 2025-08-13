@@ -10,7 +10,7 @@ from marketplace.products.schemas.product_dto import (
     ProductCreateSchema,
     ProductUpdateSchema,
 )
-from marketplace.products.repositories.abstract import ProductRepositoryAbstract
+from marketplace.products.repositories.product.abstract import ProductRepositoryAbstract
 
 
 def _to_dto(model: ProductModel) -> ProductDTO:
