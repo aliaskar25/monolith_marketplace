@@ -18,7 +18,6 @@ class CategoryDTO(BaseModel):
     gender: CategoryGender
     is_for_kids: bool
     is_main_category: bool
-    parents: list[CategoryShortDTO]
     children: list[CategoryShortDTO]
 
 
@@ -27,8 +26,15 @@ class CategoryCreateSchema(BaseModel):
     gender: CategoryGender
     is_for_kids: bool
     is_main_category: bool
-
+    parents: Optional[list[UUID]] = None
 
 class CategoryUpdateSchema(BaseModel):
     name: Optional[str] = None
     gender: Optional[CategoryGender] = None
+    is_for_kids: Optional[bool] = None
+    is_main_category: Optional[bool] = None
+
+
+class CategoryFiltersSchema(BaseModel):
+    gender: Optional[CategoryGender] = None
+    is_for_kids: Optional[bool] = None
