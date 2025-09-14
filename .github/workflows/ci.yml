@@ -24,6 +24,10 @@ jobs:
 
     env:
       DATABASE_URL: ${{ secrets.DATABASE_URL_CI }}
+      POSTGRES_HOST: postgres
+      POSTGRES_DB: marketplace
+      POSTGRES_USER: marketplace
+      POSTGRES_PASSWORD: marketplace
 
     steps:
       - uses: actions/checkout@v4
@@ -38,6 +42,11 @@ jobs:
             pip-${{ runner.os }}-
       - name: Install deps
         run: pip install -r requirements.txt
+      - name: Debug DB connectivity
+        run: |
+          echo "$DATABASE_URL"
+          which psql || (sudo apt-get update && sudo apt-get install -y postgresql-client)
+          PGPASSWORD=$POSTGRES_PASSWORD psql -h postgres -U $POSTGRES_USER -d $POSTGRES_DB -c "SELECT 1;"
       - name: Alembic upgrade
         run: alembic upgrade head
       - name: Lint (ruff)
