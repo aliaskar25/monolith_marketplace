@@ -24,7 +24,6 @@ jobs:
 
     env:
       DATABASE_URL: ${{ secrets.DATABASE_URL_CI }}
-      POSTGRES_HOST: postgres
       POSTGRES_DB: marketplace
       POSTGRES_USER: marketplace
       POSTGRES_PASSWORD: marketplace
